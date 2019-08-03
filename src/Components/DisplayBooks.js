@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {lazy,Suspense } from 'react';
 import {ListGroupItem,ListGroup, Card, CardBody, CardHeader, CardFooter, CardTitle, CardSubtitle} from 'reactstrap';
 import StarRating from './RenderStarRating';
-
-const DisplayBooks = (props) =>{
-    const books= props.books.map((book) => {
+//const DisplayBooksSecondPart = React.lazy(()=> import('./DisplayBooksSecondPart'));
+const DisplayBooksSecondPart = lazy(() => import('./DisplayBooksSecondPart'),'default')
+function book_display_cards(book){
+        
     return (
 
     <div className="col-12 col-sm-6 col-md-4 text-left card-background">
@@ -29,15 +30,40 @@ const DisplayBooks = (props) =>{
         </CardFooter>
     </Card>
     </div>
+    
 
 
         
-            );
-        });
+);
+}
 
+const DisplayBooks = (props) =>{
+    
+    var books1to12=[];
+    var booksRest=[];
+    for ( var i=0; i<12; i++ )
+    {
+        books1to12.push(props.books[i]);
+    }
+    for (var i=12 ; i< props.books.length ; i++ )
+    {
+        booksRest.push(props.books[i]);
+    }
+   
+    var books1= books1to12.map(book_display_cards);
+    var books2=booksRest.map(book_display_cards);
+    
     return (
+        <div>
         <div className="row">
-            {books}
+            {books1}
+        </div>
+        
+        
+        <Suspense fallback={<h3>Still Loading…</h3>}>
+        <DisplayBooksSecondPart books={books2}/>
+       
+        </Suspense>
         </div>
     ); 
     }

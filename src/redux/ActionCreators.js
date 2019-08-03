@@ -7,12 +7,12 @@ export const BooksLoading = () => ({
 
 
 export const fetchBooks = () => (dispatch) => {
-    dispatch(BooksLoading(true));
+    dispatch(BooksLoading());
     return fetch(baseUrl ,
-    {method: 'GET',
-    
-    headers:{
-      'Content-Type': 'application/json'
+      {
+        method: 'GET',
+        headers:{
+          'Content-Type': 'application/json'
     } })
     .then(response => {
         if (response.ok) {

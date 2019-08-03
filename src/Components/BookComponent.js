@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
+import React, {Component,Suspense, lazy}  from 'react';
 
 import {Loading} from './LoadingComponent';
 import {Input,Form,FormGroup, FormControl, Button} from 'reactstrap';
 import {connect} from 'react-redux';
 import {fetchBooks} from '../redux/ActionCreators';
 import DisplayBooks from './DisplayBooks';
-import SortedBooks from './SortedBooks';
-import { thisExpression } from '@babel/types';
+import sortJsonArray from 'sort-json-array';
+//import SortedBooks from './SortedBooks';
+
 const mapStateToProps = state => {
     return{
     books: state.books,
@@ -22,17 +23,34 @@ const mapDispatchToProps = dispatch => ({
  
   
   
-  
 });
+
+//const DisplayBooks = React.lazy(()=> import ('./DisplayBooks'));
 const DisplayBooksSortedUnsorted = (props) =>{
    if(props.sorted){
+    var filtereddata = props.books.filter((book)=> {
+        var myre = new RegExp('[a-zA-Z]');
+        if(!myre.test(book.average_rating))
+        {
+            return book;
+        }
+
+    }
+
+    )
+    var sortedData= sortJsonArray(filtereddata,'average_rating','des');
        return(
-        <SortedBooks books={props.books}/>
+        <DisplayBooks books={sortedData}/>
        );
    }
    else{
        return(
+        <div>
+        
+        
         <DisplayBooks books={props.books}/>
+        
+         </div>
        );
 
    }
