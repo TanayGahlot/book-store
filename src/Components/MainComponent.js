@@ -1,35 +1,30 @@
 import React, { Component } from 'react';
-import Book from './BookComponent';
+import BookAppBody from './BookAppBodyComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 
 class Main extends Component {
 
-  
+
 
   render() {
-   
 
-   
-   
+
+
+
     return (
       <div>
-      <div className="taskbody_background">
-      <Header/>
-      
-      <Book/>
+        <div className="taskbody_background">
+          <Header />
+          <BookAppBody/>
+          <br />
+        </div>
+        <Footer />
+      </div>
 
-            
-             
-      <br/>
-      </div>
-      <Footer/>
-      </div>
-      
     );
   }
 }
 
 
-//export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Main));
 export default Main;

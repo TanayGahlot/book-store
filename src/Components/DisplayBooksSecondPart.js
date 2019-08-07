@@ -1,5 +1,4 @@
 import React, { Component} from 'react';
-
 class DisplayBooksSecondPart extends Component{
 render(){
     return (
@@ -9,13 +8,4 @@ render(){
             );
 }
 }
-
 export default DisplayBooksSecondPart; 
-// export const DisplayBooksSecondPart = (props) =>{
-//     return (
-//     <div className="row">
-//                 {props.books}
-//     </div>
-//     );
-//     } 
-    

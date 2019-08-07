@@ -11,6 +11,7 @@ export const fetchBooks = () => (dispatch) => {
     return fetch(baseUrl ,
       {
         method: 'GET',
+        //mode: *same-origin,
         headers:{
           'Content-Type': 'application/json'
     } })
