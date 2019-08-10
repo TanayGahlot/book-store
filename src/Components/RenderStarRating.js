@@ -1,76 +1,21 @@
 import React from 'react';
-
-
-
-const StarRating = (props) =>{
-   if (props.rating===5){
-    return (
-        <span>
-        <i className="fa fa-star fa-1x checked " id="star1" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x checked" id="star2" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x checked" id="star3" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x checked" id="star4" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x checked" id="star5" aria-hidden="true"></i>
-        </span>
-    ); 
-   }
-    else if(props.rating >=4 && props.rating <5 ){ return (
-        <span>
-        <i className="fa fa-star fa-1x checked" id="star1" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x checked" id="star2" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x checked" id="star3" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x checked" id="star4" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x " id="star5" aria-hidden="true"></i>
-        </span>
-    ); 
-    }
-    else if(props.rating >=3  && props.rating <4 ){ return (
-        <span>
-        <i className="fa fa-star fa-1x checked " id="star1" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x checked" id="star2" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x checked" id="star3" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x " id="star4" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x " id="star5" aria-hidden="true"></i>
-        </span>
-    ); 
-        
-    }
-    else if(props.rating>=2 && props.rating <3 ){ return (
-        <span>
-        <i className="fa fa-star fa-1x checked" id="star1" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x checked " id="star2" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x " id="star3" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x " id="star4" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x " id="star5" aria-hidden="true"></i>
-        </span>
-    ); 
-        
-    }
-    else if(props.rating >=1 && props.rating <2 )
-    { return (
-        <span>
-        <i className="fa fa-star fa-1x checked" id="star1" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x " id="star2" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x " id="star3" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x " id="star4" aria-hidden="true"></i>
-        <i className="fa fa-star fa-1x " id="star5" aria-hidden="true"></i>
-        </span>
-    ); 
-}   
-    else {
-        return (
-            <span>
-            <i className="fa fa-star fa-1x " id="star1" aria-hidden="true"></i>
-            <i className="fa fa-star fa-1x " id="star2" aria-hidden="true"></i>
-            <i className="fa fa-star fa-1x " id="star3" aria-hidden="true"></i>
-            <i className="fa fa-star fa-1x " id="star4" aria-hidden="true"></i>
-            <i className="fa fa-star fa-1x  " id="star5" aria-hidden="true"></i>
-            </span>
-        ); 
-      }  
+const StarRating = (props) => {
+  
+let starElements =[];
+let rating = Math.floor(props.rating);
     
-
+for ( var i=1 ; i<=5; i++){
+     starElements.push(
     
+       
+           <i className={`fa fa-star fa-1x ${i<=rating?'checked':''}`} id={"star"+i} aria-hidden="true"></i>
+     ) 
+    }
+return(
+    <span>
+        {starElements}
+    </span>
+);
+ 
 }
 export default StarRating;
-

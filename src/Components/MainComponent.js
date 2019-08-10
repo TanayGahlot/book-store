@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BookAppBody from './BookAppBodyComponent';
+import BookAppBody from './BookAppBody';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 

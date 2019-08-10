@@ -45,15 +45,16 @@ const DisplayBooks = (props) => {
     var books2 = booksRest.map(bookDisplayCards);
 
     return (
-        <div>
-            <div className="row">
+        <React.Fragment>
+            
+            
                 {books1}
-            </div>
+           
 
             <Suspense fallback={<h3>Still Loading…</h3>}>
                 <DisplayBooksSecondPart books={books2} />
             </Suspense>
-        </div>
+        </React.Fragment>
     );
 }
 export default DisplayBooks;
