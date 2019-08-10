@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Card, CardBody, CardFooter, CardTitle, CardSubtitle } from 'reactstrap';
-import StarRating from './RenderStarRating';
+import StarRating from './StarRating';
 const DisplayBooksSecondPart = lazy(() => import('./DisplayBooksSecondPart'), 'default')
 
 function bookDisplayCards(book) {
