@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-class DisplayBooksSecondPart extends Component{
+class DisplayRemainingBooks extends Component{
 render(){
     return (
             <div className="row">
@@ -8,4 +8,4 @@ render(){
             );
 }
 }
-export default DisplayBooksSecondPart; 
+export default DisplayRemainingBooks; 

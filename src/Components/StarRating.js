@@ -1,19 +1,13 @@
 import React from 'react';
 const StarRating = (props) => {
   
-let starElements =[];
+
 let rating = Math.floor(props.rating);
-    
-for ( var i=1 ; i<=5; i++){
-     starElements.push(
-    
-       
-           <i className={`fa fa-star fa-1x ${i<=rating?'checked':''}`} id={"star"+i} aria-hidden="true"></i>
-     ) 
-    }
-return(
+    return(
     <span>
-        {starElements}
+        {[1,2,3,4,5].map(starelement => 
+           <i className={`fa fa-star fa-1x ${starelement<=rating?'checked':''}`} id={"star"+starelement} aria-hidden="true"></i>
+        )}
     </span>
 );
  

@@ -5,29 +5,17 @@ import DisplayBooks from './DisplayBooks';
 import sortJsonArray from 'sort-json-array';
 import { baseUrl } from '../shared/baseUrl';
 class BookAppBody extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+    
+        state = {
             books: [],
-            sorted: false,
+           // sorted: false,
             isLoading: false,
             error: null
         };
-    }
+    
     handleSort = () => {
-        this.setState({
-            sorted: true
-        });
-    }
-    componentDidMount() {
-        this.setState({ isLoading: true });
-        fetch(baseUrl)
-            .then(response => response.json())
-            .then(data => this.setState({ books: data, isLoading: false }))
-            .catch(error => this.setState({ error, isLoading: false }));
-    }
-    render() {
-        var filtereddata = this.state.books.filter((book) => {
+        
+        const DataTobeSorted = this.state.books.filter(book => {
             var myre = new RegExp('[a-zA-Z]');
             if (!myre.test(book.average_rating)) 
             {
@@ -35,7 +23,24 @@ class BookAppBody extends Component {
             }
         }
         )
-        var sortedData = sortJsonArray(filtereddata, 'average_rating', 'des');
+       
+        this.setState({
+            books: sortJsonArray(DataTobeSorted, 'average_rating', 'des')
+        });
+    }
+    
+        toggleLoader= () => this.setState(prevState => ({isLoading: !prevState.isLoading}));
+        
+
+    componentDidMount() {
+        this.toggleLoader();
+        fetch(baseUrl)
+            .then(response => response.json())
+            .then(books => {this.setState({ books});this.toggleLoader();})
+            .catch(error => this.setState({ error, isLoading: false }));
+    }
+    render() {
+        
         if (this.state.isLoading) {
             return (
                 <div className="container">
@@ -77,9 +82,10 @@ class BookAppBody extends Component {
             
               
                <div className="row">
-               {
+               {/* {
                     this.state.sorted ? (<DisplayBooks books={sortedData} />) : (<DisplayBooks books={this.state.books} />)
-                }
+                } */}
+                <DisplayBooks books={this.state.books} />
                 </div>
             </div>
             </React.Fragment>
