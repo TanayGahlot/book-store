@@ -1,4 +1,6 @@
-Problem Statement: Fetch list of books from Web API 'http://starlord.hackerearth.com/books'.Make use of the response parmaters [title,authors,average_rating,isbn,language_code,ratings_count,price. Add feature to Sort it based on average ratings, Also add a search functionality.
+Problem Statement: Fetch list of books from Web API http://starlord.hackerearth.com/books
+ 
+Make use of the response parmaters [title,authors,average_rating,isbn,language_code,ratings_count,price. Add feature to Sort it based on average ratings, Also add a search functionality.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
