@@ -14,7 +14,6 @@ export const DisplayBookCard = (book) => {
                         <strong>{book.price} INR</strong>
                     </p>
 
-
                     <em>Language Code: {book.language_code} </em>
                 </CardBody>
                 <CardFooter >
@@ -23,7 +22,7 @@ export const DisplayBookCard = (book) => {
                     </span>
                     <span className="star-right ">
                         <StarRating rating={book.average_rating} />
-                        {/* <i className="fa fa-star fa-1x align-middle " aria-hidden="true"></i>  */}
+                    
                         {book.average_rating} </span>
                 </CardFooter>
             </Card>

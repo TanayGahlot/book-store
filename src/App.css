@@ -66,3 +66,19 @@ background-color: slategrey;
 .author{
   font-size: 12px;
 }
+
+.back-stars {
+  display: inline-block;
+  color: #bb5252;
+  
+}
+.front-stars {
+  display: inline-block ; 
+  color: #FFBC0B;
+}
+.star-rating{
+  display: inline-block;
+}
+.pagination-bar{
+  width:100%
+}
